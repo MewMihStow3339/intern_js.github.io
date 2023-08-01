@@ -52,10 +52,10 @@ console.log(1 + 2 + "3"); // 33
 
 // 8.
 
-let name = "mihir";
+let namee = "mihir";
 let age = 17;
 
-console.log(`Hello!, My name is: ${name} and my age is: ${age}`);
+console.log(`Hello!, My name is: ${namee} and my age is: ${age}`);
 
 // 9.
 
