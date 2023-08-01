@@ -16,6 +16,8 @@ setTimeout(() => {
 }, 0);
 console.log("third");
 
+// 3.
+
 var arr1 = "john".split('');
 var arr2 = arr1.reverse();
 var arr3 = "jones".split('');
@@ -26,3 +28,9 @@ console.log(arr2);
 
 console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(0));
 console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(0));
+
+// 4.
+var a = "mihir modhwadiya".split('');
+var b = a.reverse();
+
+console.log(a);
