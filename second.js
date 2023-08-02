@@ -65,19 +65,107 @@ console.log(obj[age]);
 obj["email"] = "mihir@gmail.com"; // can be chaged like this
 console.log(obj["email"]);
 
-
 obj.fun = function () {
   console.log("hello this is function");
 }
 console.log(obj.fun);
 obj.fun()
 
+// 6.
 obj.fun2 = function () {
-  console.log(`hello this is ${this.name}`);
+  console.log(`hello this is ${this.name}`); //obj's value can be accessed bt this.
 }
 obj.fun2()
-// Object.freeze(obj); // it restrict any objects to update after its diclaration like:
 
+
+// 7.
+Object.freeze(obj); // it restrict any objects to update after its diclaration like:
 console.log(obj["email"]);
 obj["email"] = "mihirrrrrrrrrrr@gmail.com"; // can't be chaged like this
+
+// 8.
+const obja = {
+  name: "mihir modhwadiya"
+}
+const objb = {
+  age: 17
+}
+
+const objc = { ...obja, ...objb }
+
+console.log(objc);
+
+// 9.
+
+const nest = [ // nested array of object
+  {
+    id: 1
+  },
+  {
+    id: 2
+  },
+  {
+    id: {
+      id1: 1,
+      id2: 2,
+    }
+  },
+]
+
+console.log(nest); // not the best way
+
+console.log(Object.keys(nest));
+console.log(Object.values(nest));
+console.log(Object.entries(nest));
+
+// 10.
+
+const info = {
+  namee: "mihir",
+  age: 17,
+}
+const { namee: nm } = info // object destructure and giving new name
+
+console.log(nm); // printing destructure
+
+// 11. special react concept: <------------------------------------------------------------------------------- IMP
+const compinfo = {
+  companyid: 1,
+  companyname: "vaistra",
+  companyemp: 39,
+}
+
+const react_destructure = ({companyname:a}) => {
+  console.log(a);
+  // console.log(compinfo.companyname);
+
+}
+
+react_destructure(compinfo)
+
+
+// 12. rest or spread operator
+function rest(...nums){
+  return nums;
+}
+console.log(rest(1,2,3,4)); // [1,2,3,4]
+
+
+// 13.
+function rest2(val1,val2,...nums){
+  return nums;
+}
+console.log(rest2(1,2,3,4,5)); // [3,4,5] because val1 = 1 and val2 = 2  
+
+// 14.
+
+function arraypass(arr){
+  console.log(`name is: ${arr.name} and age is: ${arr.age}`)
+}
+arraypass({
+  name:"mihir",
+  age:17
+})
+
+// 15.
 
