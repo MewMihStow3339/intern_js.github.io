@@ -27,7 +27,7 @@ const variable = function (num) {
     return num
 }
 console.log(variable(5)); // can't be called before function defination
-
+    
 // 5. Immediately Invoke Function Expression (IIFE)
 
 (function call_sort(){ // called named iife
