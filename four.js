@@ -21,7 +21,6 @@ for (const key in arr) { // in most used for objects
 console.log();
 
 // 3.
-
 const mp = new Map();
 
 mp.set("name","mihir");
