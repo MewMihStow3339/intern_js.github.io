@@ -47,7 +47,7 @@ const nums = mynums.filter((num) => num > 4) // does return values
 
 console.log(nums);
 
-// 6.
+// 6. 
 
 const books = [
     { title: 'Book One', genre: 'Fiction', publish: 1981, edition: 2004 },
@@ -64,6 +64,34 @@ const books = [
 let userBooks = books.filter((bk) => bk.genre === 'History')
 
 userBooks = books.filter((bk) => {
-    return bk.publish >= 1995 && bk.genre === "History"
+    return bk.publish >= 1995 && bk.genre === "History" // returns boolean and other value also
 })
 console.log(userBooks);
+
+// 7. map
+
+const nums2 = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+const newnums = nums2.map((num) => num + 10) // returns only other values not boolean value
+
+console.log(newnums);
+
+// 8. reduce
+
+const accum = [1, 2, 3, 4, 5] // method one
+
+const inititialvalue = 0;
+
+const sumwithinitial = accum.reduce(
+    (accumulator, cuurentvalue) => accumulator + cuurentvalue, inititialvalue
+);
+
+console.log(sumwithinitial);
+
+// 8.
+
+const num1 = [1, 2, 3, 4, 5] // method two
+
+const vall = num1.reduce((acc, curr) => acc + curr, 0)
+
+console.log(vall);
