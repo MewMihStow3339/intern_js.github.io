@@ -55,17 +55,16 @@ const obj = {
   hobby: "programing, gaming",
   email: "mihirmodhwadiya21@gmail.com",
 }
-console.log(obj["name"]);
+console.log(obj.name);
 console.log(obj["email"]);
 console.log(obj[age]);
+
+
+// 5.
 
 obj["email"] = "mihir@gmail.com"; // can be chaged like this
 console.log(obj["email"]);
 
-// Object.freeze(obj); // it restrict any objects to update after its diclaration like:
-
-console.log(obj["email"]);
-obj["email"] = "mihirrrrrrrrrrr@gmail.com"; // can't be chaged like this
 
 obj.fun = function () {
   console.log("hello this is function");
@@ -77,3 +76,8 @@ obj.fun2 = function () {
   console.log(`hello this is ${this.name}`);
 }
 obj.fun2()
+// Object.freeze(obj); // it restrict any objects to update after its diclaration like:
+
+console.log(obj["email"]);
+obj["email"] = "mihirrrrrrrrrrr@gmail.com"; // can't be chaged like this
+
