@@ -10,13 +10,13 @@ console.log(`after splice: ${arr}\n`); // splice counts *start to end of limit*
 
 // 2.
 
-console.log("first");
+// console.log("first");
 
-setTimeout(() => {        // --|
-    console.log("second");//   |--> this runed at end of code
-}, 0);                    // --|
+// setTimeout(() => {        // --|
+//     console.log("second");//   |--> this runed at end of code
+// }, 0);                    // --|
 
-console.log("third");
+// console.log("third");
 
 // 3.
 
@@ -46,3 +46,34 @@ console.log(a);
 */
 
 // 4.
+
+let age = Symbol("age") // symbol is datatype and this is way to declare it.
+
+const obj = {
+  name: "mihir",
+  [age]: 17,
+  hobby: "programing, gaming",
+  email: "mihirmodhwadiya21@gmail.com",
+}
+console.log(obj["name"]);
+console.log(obj["email"]);
+console.log(obj[age]);
+
+obj["email"] = "mihir@gmail.com"; // can be chaged like this
+console.log(obj["email"]);
+
+// Object.freeze(obj); // it restrict any objects to update after its diclaration like:
+
+console.log(obj["email"]);
+obj["email"] = "mihirrrrrrrrrrr@gmail.com"; // can't be chaged like this
+
+obj.fun = function () {
+  console.log("hello this is function");
+}
+console.log(obj.fun);
+obj.fun()
+
+obj.fun2 = function () {
+  console.log(`hello this is ${this.name}`);
+}
+obj.fun2()
