@@ -1,4 +1,4 @@
-// tc39.com and MDN reference
+// tc39.es and MDN reference
 
 
 // 1.
