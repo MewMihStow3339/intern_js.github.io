@@ -3,7 +3,7 @@ const result = document.getElementById("result");
 result.innerHTML = "0"
 let rplc;
 let flag = 0;
-const buttonPressed = (e) => {
+const btnP = (e) => {
     const condition = result.innerText.charAt(result.innerText.length - 1)
     if (!(e.target.id == '0' || e.target.id == '=' || e.target.id == 'AC' || e.target.id == 'C' || e.target.id == '.')) {
         if (result.innerText == '0' || result.innerText == '/' || result.innerText == '-' || result.innerText == '+' || result.innerText == '*' || result.innerText == '%') {
@@ -76,5 +76,5 @@ const buttonPressed = (e) => {
 }
 
 for (let button of buttons) {
-    button.addEventListener("click", buttonPressed);
+    button.addEventListener("click", btnP);
 }

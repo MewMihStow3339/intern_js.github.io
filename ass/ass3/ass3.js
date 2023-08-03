@@ -1,6 +1,40 @@
-function add() {
-    const input = document.getElementById("inp")
-    const content = input.innerText
+let i = 1;
+let btni = 1;
+const add = () => {
+    const newli = document.createElement("li")
+    newli.setAttribute("class", "btn-group")
+    newli.setAttribute("id", `li${i}`)
+    document.querySelector("#ul").appendChild(newli)
 
-    console.log(content);
+    const newinp = document.createElement("input")
+    newinp.type = "text"
+    newinp.disabled = true
+    const input = document.getElementById("inp")
+    newinp.value = `${input.value}`
+    newinp.setAttribute("class", "form-control")
+    newinp.setAttribute("id", "fc")
+
+    document.querySelector(`#li${i}`).appendChild(newinp)
+
+    const newbtn = document.createElement("button")
+    newbtn.type = "button"
+    newbtn.innerHTML = "x"
+    newbtn.setAttribute("class", "btn btn-primary")
+    newbtn.setAttribute("id", `btn${btni}`)
+    newbtn.setAttribute("onclick", `remove(li${i})`)
+    document.querySelector(`#li${i}`).appendChild(newbtn)
+
+    const br = document.createElement("br")
+    document.querySelector(`#ul`).appendChild(br)
+    i++
+    btni++
+}
+function remove(id) {
+    console.log(id);
+    // i--
+    // btni--
+    // let el = document.getElementById(`li${i}`);
+    const newli = document.getElementById("ul")
+    // newli.removeChild(newli.lastElementChild)
+    newli.removeChild(id)
 }
