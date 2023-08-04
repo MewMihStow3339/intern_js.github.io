@@ -41,4 +41,4 @@ function remove(id) {
 function removeall(){
     const removeallli = document.getElementById("ul")
     removeallli.innerHTML = ""
-}   
+}
