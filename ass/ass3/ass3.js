@@ -2,7 +2,7 @@ let i = 1;
 let btni = 1;
 const add = () => {
     const newli = document.createElement("li")
-    newli.setAttribute("class", "btn-group col-md-6")
+    newli.setAttribute("class", "btn-group")
     newli.setAttribute("id", `li${i}`)
     document.querySelector("#ul").appendChild(newli)
 
