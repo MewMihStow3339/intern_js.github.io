@@ -16,14 +16,16 @@
     <div class="mt-5 w-25 position-relative start-50 translate-middle-x btn-group">
         <input type="text" name="inp" class="form-control" id="inp">
         <button type="button" class="btn btn-primary" id="btn" onclick="add()">add</button>
-        <button type="button" class="btn btn-danger" id="btnrm" onclick="remove()">x</button>
+        <button type="button" class="btn btn-danger" id="btnrm" onclick="removeall()">clearall</button>
     </div>
     <br>
-    <ul class="mt-5 position-relative start-50 translate-middle-x text-light" id="ul">
-        <!-- <li class="btn-group" id="li0">
-            <input type="text" name="disp" class="form-control" id="disp" disabled>
-            <button type="button" class="btn btn-danger" id="btnrm" onclick="remove()">x</button>
-        </li><br> -->
+    <ul class="mt-5 container text-center" id="ul1">
+        <ul class="mt-5 container-sm" id="ul">
+            <li class="btn-group col-md-6" id="li0">
+                <input type="text" name="disp" class="form-control" id="disp" disabled>
+                <button type="button" class="btn btn-danger" id="btnrm" onclick="remove()">clear</button>
+            </li>
+        </ul>
     </ul>
 
 
