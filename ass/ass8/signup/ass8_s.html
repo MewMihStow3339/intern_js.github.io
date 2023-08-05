@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>signup</title>
+    <!-- Bootstrap CSS-->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+<body class="bg-dark text-light">
+
+    <div class="position-absolute top-50 start-50 translate-middle border border-1 border-light">
+        <div class="p-5">
+            <input class="form-control" type="email" id="email" placeholder="Enter email"><br>
+            <input class="form-control" type="password" id="password" placeholder="Enter password"><br>
+            <input class="form-control" type="text" id="cono" placeholder="Enter Cotact number"><br>
+            <textarea class="form-control" id="texta" cols="30" rows="2" placeholder="Your Address"></textarea>
+            <div class="d-flex text-center pt-3">
+                <strong>Your Hobby:</strong>
+                <div class="px-3">
+                    <label for="ch1">programming</label><br>
+                    <input type="checkbox" value="programming" id="ch1">
+                </div>
+                <div class="px-3">
+                    <label for="ch2">gaming</label><br>
+                    <input type="checkbox" value="gaming" id="ch2">
+                </div>
+                <div class="px-3">
+                    <label for="ch3">movies</label><br>
+                    <input type="checkbox" value="movies" id="ch3">
+                </div>
+                <div>
+                    <label for="ch4">anime</label><br>
+                    <input type="checkbox" value="anime" id="ch4">
+                </div>
+            </div>
+            <div class="d-felx text-center pt-3">
+                Your Gender:
+                <label for="Male">Male</label>
+                <input class="me-3" type="radio" name="radio" value="Male" id="ch1">
+
+                <label for="ch2">Female</label>
+                <input type="radio" name="radio" value="Female" id="ch2">
+            </div>
+            <div class="d-flex justify-content-center mt-3">
+                <div class="btn-group dropdown">
+                    <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Dropright
+                    </button>
+                    <ul class="dropdown-menu text-center">
+                        <button class="btn">computer eng</button>
+                        <button class="btn">mechanical eng</button>
+                        <button class="btn">electrical eng</button>
+                        <button class="btn">civil eng</button>
+                    </ul>
+                </div>
+            </div>
+            <input class="form-control text-center mt-3" type="file" id="img">
+            <div class="d-flex justify-content-center pt-3">
+                <button class="btn btn-primary" type="submit" onclick="get()">Signup</button>
+            </div>
+            <a href="../Read_login/ass8_l.html" class="text-decoration-none text-light">Login?</a>
+        </div>
+    </div>
+
+    <!-- Bootstrap js-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+    <script src="./ass8_s.js"></script>
+    <!-- <script>localStorage.setItem(3,1); -->
+    </script>
+</body>
+
+</html>
