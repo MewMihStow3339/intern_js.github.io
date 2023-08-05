@@ -1,8 +1,13 @@
-let i=0;
-function hovereffecrt(){
+i = 0
+function hovereffecrt(event) {
+    event.preventDefault()
     const idname = document.getElementById('effect')
+    if (i % 2 == 0) {
+        let eff = idname.style.backgroundColor = 'black'
+    }
+    else if (i % 2 == 1) {
+        let eff = idname.style.backgroundColor = 'white'
+    }
     i++;
-    // console.log(idname);
-    let eff = idname.style.backgroundColor = 'black'
-    
 }
+submit.addEventListener("mouseover", hovereffecrt)

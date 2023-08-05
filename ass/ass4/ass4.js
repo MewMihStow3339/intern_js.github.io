@@ -13,7 +13,6 @@ const hidden = document.querySelector(".visually-hidden")
 submit.addEventListener("click", weather)
 
 function weather() {
-
     fetch('https://weather-by-api-ninjas.p.rapidapi.com/v1/weather?city=' + sub.value, options)
         .then(responce => responce.json())
         .then(responce => {
@@ -22,10 +21,12 @@ function weather() {
                 disp.innerHTML = responce.feels_like;
                 city.innerHTML = sub.value;
                 hidden.setAttribute("class", "")
+                console.log(responce.feels_like);
             }
             else {
-                hidden.innerHTML = "Pls Enter Valid area,city,state or country name"
+                hidden.innerHTML = "Pls enter valid place name"
                 hidden.setAttribute("class", "")
+                // event.reload()
             }
         })
         .catch((error) => {
