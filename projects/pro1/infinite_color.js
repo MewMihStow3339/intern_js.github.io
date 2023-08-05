@@ -1,6 +1,6 @@
 let intr;
 const start = document.getElementById("start").addEventListener("click", function () {
-    intr = setInterval(infinite_color, 500);
+    intr = setInterval(infinite_color, 1000);
 })
 const stop = document.getElementById("stop").addEventListener("click", function () {
     clearInterval(intr)

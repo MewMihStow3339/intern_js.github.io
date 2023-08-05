@@ -14,7 +14,8 @@ function get() {
         }
     }
     if (flag == 1) {
-        alert("logged in");
+        alert(`logged in successfully your data is \nemail: ${email} \npassword is: ${password}`);
+        window.location.href = "http://127.0.0.1:5500/ass/ass7/dlt/ass7_d.html";
     }
     else {
         alert("not logged in");
