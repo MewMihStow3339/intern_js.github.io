@@ -11,7 +11,7 @@ pro.then((info) => {
     console.log();
 })
 
-// 2.
+// 2. best way
 
 new Promise((resolve, reject) => {
     setTimeout(() => {
@@ -36,7 +36,7 @@ new Promise((resolve, reject) => {
     console.log("finally runed\n");
 })
 
-// 3.
+// 3. not the best way 
 
 const async = new Promise((resolve, reject) => {
     setTimeout(() => {
