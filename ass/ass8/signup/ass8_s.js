@@ -1,6 +1,9 @@
 let dropval;
 
-function get() {
+function store() {
+    if(document.getElementsByName("ch")){
+        alert("must check any one checkbox")
+    }
     const email = document.getElementById("email")
     const password = document.getElementById("password").value
     const contact = document.getElementById("cono").value
@@ -51,6 +54,7 @@ function get() {
     // console.log(chval);
     // console.log(radioval);
     // console.log(drop);
+    event.preventDefault();
 }
 
 function btn(val) {

@@ -10,5 +10,7 @@ function check() {
         alert(`Checkbox ${ch1.value} is checked`)
     } else if (ch2.checked == true) {
         alert(`Checkbox ${ch2.value} is checked`)
-    }
+    }4
+    
+    event.preventDefault();
 }

@@ -19,4 +19,6 @@ function get() {
     else {
         alert("not logged in");
     }
+    
+    event.preventDefault();
 }

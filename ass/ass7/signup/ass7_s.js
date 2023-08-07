@@ -20,4 +20,6 @@ function store() {
     else if (flag == 0) {
         alert("whis email is registered please enter another email");
     }
+    
+    event.preventDefault();
 }

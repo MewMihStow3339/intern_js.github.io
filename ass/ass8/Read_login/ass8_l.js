@@ -17,9 +17,9 @@ function get() {
     }
     if (flag == 1) {
         alert(`logged in successfully your data is \nemail: ${email} \ninfo is: ${localStorage[email]}`);
-        window.location.href = "http://127.0.0.1:5500/ass/ass8/dlt/ass8_d.html";
     }
     else {
         alert("not logged in");
     }
+    event.preventDefault();
 }

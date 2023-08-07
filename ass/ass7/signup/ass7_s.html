@@ -15,12 +15,14 @@
 
     <div class="position-absolute top-50 start-50 translate-middle border border-1 border-light">
         <div class="p-5">
-            <input required class="form-control" type="email" id="email" placeholder="Enter email"><br>
-            <input required class="form-control" type="password" id="password" placeholder="Enter password"><br>
-            <div class="d-flex justify-content-center">
-                <button class="btn btn-primary" type="submit" onclick="store()">Signup</button>
-            </div>
-            <a href="../Read_login/ass7_l.html" class="text-decoration-none text-light">Login?</a>
+            <form onsubmit="store()">
+                <input required class="form-control" type="email" id="email" placeholder="Enter email"><br>
+                <input required class="form-control" type="password" id="password" placeholder="Enter password"><br>
+                <div class="d-flex justify-content-center">
+                    <button class="btn btn-primary" type="submit">Signup</button>
+                </div>
+                <a href="../Read_login/ass7_l.html" class="text-decoration-none text-light">Login?</a>
+            </form>
         </div>
     </div>
 

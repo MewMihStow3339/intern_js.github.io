@@ -22,4 +22,5 @@ function dlt() {
         alert("Enter right email and password")
     }
 
+    event.preventDefault();
 }

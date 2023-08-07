@@ -23,4 +23,5 @@ function dlt() {
         alert("Enter correct email and password")
     }
 
+    event.preventDefault();
 }
