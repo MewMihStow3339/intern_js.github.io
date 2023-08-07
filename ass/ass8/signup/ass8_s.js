@@ -3,6 +3,7 @@ let dropval;
 function store() {
     if(document.getElementsByName("ch")){
         alert("must check any one checkbox")
+        event.preventDefault()
     }
     const email = document.getElementById("email")
     const password = document.getElementById("password").value
