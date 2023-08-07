@@ -15,36 +15,36 @@
 
     <div class="position-absolute top-50 start-50 translate-middle border border-1 border-light">
         <div class="p-5">
-            <input class="form-control" type="email" id="email" placeholder="Enter email"><br>
-            <input class="form-control" type="password" id="password" placeholder="Enter password"><br>
-            <input class="form-control" type="text" id="cono" placeholder="Enter Cotact number"><br>
-            <textarea class="form-control" id="texta" cols="30" rows="2" placeholder="Your Address"></textarea>
+            <input required class="form-control" type="email" id="email" placeholder="Enter email"><br>
+            <input required class="form-control" type="password" id="password" placeholder="Enter password"><br>
+            <input required class="form-control" type="text" id="cono" placeholder="Enter Cotact number"><br>
+            <textarea required class="form-control" id="texta" cols="30" rows="2" placeholder="Your Address"></textarea>
             <div class="d-flex text-center pt-3">
                 <strong>Your Hobby:</strong>
                 <div class="px-3">
                     <label for="ch1">programming</label><br>
-                    <input type="checkbox" value="programming" id="ch1">
+                    <input type="checkbox" value="programming" name="ch" id="ch1">
                 </div>
                 <div class="px-3">
                     <label for="ch2">gaming</label><br>
-                    <input type="checkbox" value="gaming" id="ch2">
+                    <input type="checkbox" value="gaming" name="ch" id="ch2">
                 </div>
                 <div class="px-3">
                     <label for="ch3">movies</label><br>
-                    <input type="checkbox" value="movies" id="ch3">
+                    <input type="checkbox" value="movies" name="ch" id="ch3">
                 </div>
                 <div>
                     <label for="ch4">anime</label><br>
-                    <input type="checkbox" value="anime" id="ch4">
+                    <input type="checkbox" value="anime" name="ch" id="ch4">
                 </div>
             </div>
-            <div class="d-felx text-center pt-3">
+            <div class="d-felx text-center pt-3" aria-required="true">
                 Your Gender:
-                <label for="Male">Male</label>
-                <input class="me-3" type="radio" name="radio" value="Male" id="ch1">
+                <label for="r1">Male</label>
+                <input class="me-3" type="radio" name="radio" value="Male" id="r1">
 
-                <label for="ch2">Female</label>
-                <input type="radio" name="radio" value="Female" id="ch2">
+                <label for="r1">Female</label>
+                <input type="radio" name="radio" value="Female" id="r1">
             </div>
             <div class="d-flex justify-content-center mt-3">
                 <div class="btn-group dropdown">
@@ -53,10 +53,10 @@
                         Dropright
                     </button>
                     <ul class="dropdown-menu text-center">
-                        <button class="btn">computer eng</button>
-                        <button class="btn">mechanical eng</button>
-                        <button class="btn">electrical eng</button>
-                        <button class="btn">civil eng</button>
+                        <button name="drop" onclick="btn(this.value)" value="computer" class="btn" id="btt">computer eng</button>
+                        <button name="drop" onclick="btn(this.value)" value="mechanical" class="btn" id="btt">mechanical eng</button>
+                        <button name="drop" onclick="btn(this.value)" value="electrical" class="btn" id="btt">electrical eng</button>
+                        <button name="drop" onclick="btn(this.value)" value="civil" class="btn" id="btt">civil eng</button>
                     </ul>
                 </div>
             </div>

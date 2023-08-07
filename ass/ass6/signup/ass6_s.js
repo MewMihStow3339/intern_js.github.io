@@ -6,7 +6,7 @@ function store() {
     let flag = 1;
     for (let i = 0; i < len; i++) {
         let key = localStorage.key(i);
-        let value = localStorage[key];
+        // let value = localStorage[key.password];
 
         if (key == email) {
             flag = 0;
@@ -18,6 +18,6 @@ function store() {
         alert("signup successfully");
     }
     else if (flag == 0) {
-        alert("whis email is registered please enter another email");
+        alert("this email is registered please enter another email");
     }
 }
