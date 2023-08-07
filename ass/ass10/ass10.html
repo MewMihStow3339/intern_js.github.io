@@ -11,11 +11,17 @@
 <body class="bg-dark text-light">
     
     <div class="position-absolute top-50 start-50 translate-middle">
-        <h3>Digital clock</h3>
+        <h3 class="text-center">Digital clock</h3>
         <h3 class="bg-primary text-center" id="disp">time</h3>
-        <div>
-            <input type="number" >
+        <br>
+        <div class="d-flex">
+            <input type="time" id="time" class="form-control">
         </div>
+        <br>
+        <div class="text-center">
+            <button class="btn btn-primary" onclick="aclock()">set</button>
+        </div>
+        <audio id="alarm-audio"></audio>
     </div>
 
     <!-- Bootstrap js-->
