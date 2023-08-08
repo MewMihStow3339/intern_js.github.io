@@ -1,10 +1,7 @@
-let dropval;
+const reader = new FileReader();
+const imgval = document.getElementById("img").value
 
 function store() {
-    if(document.getElementsByName("ch")){
-        alert("must check any one checkbox")
-        event.preventDefault()
-    }
     const email = document.getElementById("email")
     const password = document.getElementById("password").value
     const contact = document.getElementById("cono").value
@@ -18,24 +15,17 @@ function store() {
     const radiosearch = Array.from(radio).find(radio => radio.checked)
     const radioval = radiosearch.value
 
-    const file = document.getElementById("img").value
-    const fileval = file.slice((file.lastIndexOf("\\")) + 1, file.length)
-    // console.log(fileval);
-    // console.log(dropval);
     const info = JSON.parse(JSON.stringify(`{
-                            "password":"${password}", 
-                            "contact":"${contact}", 
-                            "texta":"${texta}", 
-                            "chval":"${chval}", 
-                            "radioval":"${radioval}", 
-                            "dropval":"${dropval}", 
-                            "fileval":"${fileval}"
-                            }`))
-
-    // console.log(info);
+                                "password":"${password}", 
+                                "contact":"${contact}", 
+                                "texta":"${texta}", 
+                                "chval":"${chval}", 
+                                "radioval":"${radioval}", 
+                                "dropval":"${dropval}", 
+                                "fileval":"${null}"
+                                }`))
 
     len = localStorage.length
-    console.log(len);
     let flag = 1;
     for (let i = 0; i < len; i++) {
         let key = localStorage.key(i);
@@ -48,16 +38,16 @@ function store() {
     if (flag == 1) {
         localStorage.setItem(email.value, info)
         alert("signup successfully");
+        imgup()
     }
     else if (flag == 0) {
         alert("this email is registered please enter another email");
     }
-    // console.log(chval);
-    // console.log(radioval);
-    // console.log(drop);
     event.preventDefault();
 }
 
+
+let dropval;
 function btn(val) {
     if (val == "computer") {
         dropval = "computer";
@@ -68,4 +58,23 @@ function btn(val) {
     } else if (val == "civil") {
         dropval = "civil";
     }
+}
+
+function imgup() {
+    const imgInput = document.getElementById("img").files[0]
+
+    // imgInput.addEventListener("change", (event) => {
+    const selectedFile = imgInput;
+    reader.readAsDataURL(selectedFile);
+
+    reader.onload = function () {
+        const imageData = reader.result;
+        const email = document.getElementById("email").value;
+
+        const storedInfo = JSON.parse(localStorage.getItem(email));
+        storedInfo.fileval = imageData;
+
+        localStorage.setItem(email, JSON.stringify(storedInfo));
+    };
+    // });
 }

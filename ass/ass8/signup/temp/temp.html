@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <input type="file" id="thumbnail">
+    </div>
+    <script>
+        const input = document.getElementById('thumbnail');
+
+        input.addEventListener('change', (event) => {
+            const image = event.target.files[0];
+
+            const reader = new FileReader();
+
+            reader.readAsDataURL(image)
+            console.log(reader.result)
+            reader.addEventListener('load', () => {
+                localStorage.setItem('thumbnail', reader.result);
+            });
+        });
+    </script>
+</body>
+
+</html>
