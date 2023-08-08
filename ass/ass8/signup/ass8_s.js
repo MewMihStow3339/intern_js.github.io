@@ -2,14 +2,21 @@ const reader = new FileReader();
 const imgval = document.getElementById("img").value
 
 function store() {
+    const ch1 = document.getElementById("ch1").checked
+    const ch2 = document.getElementById("ch2").checked
+    const ch3 = document.getElementById("ch3").checked
+    const ch4 = document.getElementById("ch4").checked
+    if (ch1 == false && ch2 == false && ch3 == false && ch4 == false) {
+        debugger
+        alert("please check any one check box")
+        event.preventDefault()
+        document.getElementById("ch1").focus();
+    }
+    // event.preventDefault()
     const email = document.getElementById("email")
     const password = document.getElementById("password").value
     const contact = document.getElementById("cono").value
     const texta = document.getElementById("texta").value
-
-    const ch = document.getElementsByName("ch")
-    const chsearch = Array.from(ch).find(ch => ch.checked)
-    const chval = chsearch.value
 
     const radio = document.getElementsByName("radio")
     const radiosearch = Array.from(radio).find(radio => radio.checked)
