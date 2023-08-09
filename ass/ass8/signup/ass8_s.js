@@ -1,5 +1,6 @@
 const reader = new FileReader();
 const imgval = document.getElementById("img").value
+let changeflag = false;
 
 function store() {
     const ch1 = document.getElementById("ch1").checked
@@ -9,7 +10,8 @@ function store() {
     if (ch1 == false && ch2 == false && ch3 == false && ch4 == false) {
         alert("please check any one check box")
         event.preventDefault()
-        document.getElementById("ch1").focus();
+        // document.getElementById("ch1").focus();
+        return
     }
 
     const email = document.getElementById("email")
@@ -24,6 +26,12 @@ function store() {
     const radio = document.getElementsByName("radio")
     const radiosearch = Array.from(radio).find(radio => radio.checked)
     const radioval = radiosearch.value
+
+    if (changeflag == false) {
+        alert("please choose any one course from dropbox")
+        event.preventDefault();
+        return;
+    }
 
     const info = JSON.parse(JSON.stringify(`{
                                 "password":"${password}", 
@@ -61,12 +69,16 @@ let dropval;
 function btn(val) {
     if (val == "computer") {
         dropval = "computer";
+        changeflag = true;
     } else if (val == "mechanical") {
         dropval = "mechanical";
+        changeflag = true;
     } else if (val == "electrical") {
         dropval = "electical";
+        changeflag = true;
     } else if (val == "civil") {
         dropval = "civil";
+        changeflag = true;
     }
 }
 
