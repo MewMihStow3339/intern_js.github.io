@@ -10,7 +10,8 @@ $(document).ready(function () {
         })
 
         $(`#remove${i}`).click(function () {
-            remove(i)
+            $(this).closest('.row').remove();
+            i--
         })
 
         $(`#Upload`).click(function () {
@@ -29,7 +30,8 @@ $(document).ready(function () {
             last_total(i)
         })
         $(`#remove${i}`).click(function () {
-            remove(i)
+            $(this).closest('.row').remove();
+            i--
         })
 
         $(`#Upload`).click(function () {
@@ -99,7 +101,19 @@ $(document).ready(function () {
 
     function calc(i) {
         for (let j = 1; j < i; j++) {
-            calcc(j)
+            let iname = $(`#name${j}`).val()
+            let HSN = $(`#HSN${j}`).val()
+            let GST = $(`#GST${j}`).val()
+            let Qua = $(`#Qua${j}`).val()
+            let Rate = $(`#Rate${j}`).val()
+            $(`#Amount${j}`).val((Qua * Rate).toFixed(2))
+            let Amount = $(`#Amount${j}`).val()
+            $(`#CGST${j}`).val((((GST / 2) * $(`#Amount${j}`).val()) / 100).toFixed(2))
+            let CGST = $(`#CGST${j}`).val()
+            $(`#SGST${j}`).val((((GST / 2) * $(`#Amount${j}`).val()) / 100).toFixed(2))
+            let SGST = $(`#SGST${j}`).val()
+            $(`#Total${j}`).val(((+((GST * $(`#Amount${j}`).val()) / 100)) + (+$(`#Amount${j}`).val())).toFixed(2))
+            let Total = $(`#Total${i}`).val()
         }
     }
 
@@ -132,14 +146,21 @@ $(document).ready(function () {
         }
     }
 
-    function remove(i) {
-        $(this).closest('.row').remove();
-        i--
-    }
-
     function Upload(i) {
         for (let j = 1; j < i; j++) {
-            calcc(j)
+            let iname = $(`#name${j}`).val()
+            let HSN = $(`#HSN${j}`).val()
+            let GST = $(`#GST${j}`).val()
+            let Qua = $(`#Qua${j}`).val()
+            let Rate = $(`#Rate${j}`).val()
+            $(`#Amount${j}`).val((Qua * Rate).toFixed(2))
+            let Amount = $(`#Amount${j}`).val()
+            $(`#CGST${j}`).val((((GST / 2) * $(`#Amount${j}`).val()) / 100).toFixed(2))
+            let CGST = $(`#CGST${j}`).val()
+            $(`#SGST${j}`).val((((GST / 2) * $(`#Amount${j}`).val()) / 100).toFixed(2))
+            let SGST = $(`#SGST${j}`).val()
+            $(`#Total${j}`).val(((+((GST * $(`#Amount${j}`).val()) / 100)) + (+$(`#Amount${j}`).val())).toFixed(2))
+            let Total = $(`#Total${i}`).val()
             let obj = {
                 HSN: HSN,
                 GST: GST,
@@ -153,21 +174,6 @@ $(document).ready(function () {
             const info = JSON.stringify(obj)
             localStorage.setItem(iname, info)
         }
-    }
-    function calcc(j) {
-        let iname = $(`#name${j}`).val()
-        let HSN = $(`#HSN${j}`).val()
-        let GST = $(`#GST${j}`).val()
-        let Qua = $(`#Qua${j}`).val()
-        let Rate = $(`#Rate${j}`).val()
-        $(`#Amount${j}`).val((Qua * Rate).toFixed(2))
-        let Amount = $(`#Amount${j}`).val()
-        $(`#CGST${j}`).val((((GST / 2) * $(`#Amount${j}`).val()) / 100).toFixed(2))
-        let CGST = $(`#CGST${j}`).val()
-        $(`#SGST${j}`).val((((GST / 2) * $(`#Amount${j}`).val()) / 100).toFixed(2))
-        let SGST = $(`#SGST${j}`).val()
-        $(`#Total${j}`).val(((+((GST * $(`#Amount${j}`).val()) / 100)) + (+$(`#Amount${j}`).val())).toFixed(2))
-        let Total = $(`#Total${i}`).val()
     }
 
 })
