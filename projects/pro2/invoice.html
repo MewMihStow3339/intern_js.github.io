@@ -20,87 +20,107 @@
         <div class="main-card">
             <p class="display-4 text-center">Invoice</p>
 
-            <div class="card-body text-center" id="parent">
-                <div class="row tr-clr1" cols="22">
-                    <div class="col-3 vert-mdl d-flex align-items-center text-light py-3">
-                        <div class="">Item</div>
-                    </div>
-                    <div class="col vert-mdl d-flex align-items-center text-light py-3">
-                        <div class="">HSN/SAC</div>
-                    </div>
-                    <div class="col vert-mdl d-flex align-items-center text-light py-3">
-                        <div class="">GST</div>
-                    </div>
-                    <div class="col vert-mdl d-flex align-items-center text-light py-3">
-                        <div class="">Quantity</div>
-                    </div>
-                    <div class="col vert-mdl d-flex align-items-center text-light py-3">
-                        <div class="">Rate</div>
-                    </div>
-                    <div class="col vert-mdl d-flex align-items-center text-light py-3">
-                        <div class="">Amount</div>
-                    </div>
-                    <div class="col vert-mdl d-flex align-items-center text-light py-3">
-                        <div class="">CGST</div>
-                    </div>
-                    <div class="col vert-mdl d-flex align-items-center text-light py-3">
-                        <div class="">SGST</div>
-                    </div>
-                    <div class="col vert-mdl d-flex align-items-center text-light py-3">
-                        <div class="">Total</div>
-                    </div>
-                    <div class="col vert-mdl d-flex align-items-center text-light py-3">
-                        <div class=""></div>
-                    </div>
-                </div>
-                <div class="row tr-clr2 py-2" id="child1">
-                    <div class="col-3">
-                        <input type="text" class="form-control bg-transparent brdr-inp" id="">
-                    </div>
-                    <div class="col d-flex align-items-center">
-                        <input type="text" class="form-control bg-transparent brdr-inp" id="" placeholder="#">
-                        <div class="fnt">
-                            <div class="fa fa-search"></div>
+            <div class="card-body text-center">
+                <form id="parent" onsubmit="hello()">
+                    <div class="row tr-clr1" cols="22">
+                        <div class="col-3 vert-mdl d-flex align-items-center text-light py-3">
+                            <div class="">Item</div>
+                        </div>
+                        <div class="col vert-mdl d-flex align-items-center text-light py-3">
+                            <div class="">HSN/SAC</div>
+                        </div>
+                        <div class="col vert-mdl d-flex align-items-center text-light py-3">
+                            <div class="">GST&nbsp;Rate</div>
+                        </div>
+                        <div class="col vert-mdl d-flex align-items-center text-light py-3">
+                            <div class="">Quantity</div>
+                        </div>
+                        <div class="col vert-mdl d-flex align-items-center text-light py-3">
+                            <div class="">Rate</div>
+                        </div>
+                        <div class="col vert-mdl d-flex align-items-center text-light py-3">
+                            <div class="">Amount</div>
+                        </div>
+                        <div class="col vert-mdl d-flex align-items-center text-light py-3">
+                            <div class="">CGST</div>
+                        </div>
+                        <div class="col vert-mdl d-flex align-items-center text-light py-3">
+                            <div class="">SGST</div>
+                        </div>
+                        <div class="col vert-mdl d-flex align-items-center text-light py-3">
+                            <div class="">Total</div>
+                        </div>
+                        <div class="col vert-mdl d-flex align-items-center text-light py-3">
+                            <div class=""></div>
                         </div>
                     </div>
-                    <div class="col d-flex align-items-center">
-                        <input type="text" class="form-control bg-transparent brdr-inp" id="">
-                        <div class="fnt">
-                            <div class="fa fa-percent"></div>
+                    <!-- <div class="row tr-clr2 py-2" id="child1">
+                        <div class="col-3">
+                            <input type="text" class="form-control bg-transparent brdr-inp" value="Item Name" id="name1">
                         </div>
-                    </div>
-                    <div class="col d-flex align-items-center">
-                        <div class="fnt">
-                            <div class="fa fa-rupee"></div>
+                        <div class="col d-flex align-items-center">
+                            <input required type="text" class="form-control bg-transparent brdr-inp" id="HSN1" placeholder="#">
+                            <div class="fnt">
+                                <div class="fa fa-search"></div>
+                            </div>
                         </div>
-                        <input type="text" class="form-control bg-transparent brdr-inp" id="">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control bg-transparent brdr-inp" id="">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control bg-transparent brdr-inp" id="">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control bg-transparent brdr-inp" id="">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control bg-transparent brdr-inp" id="">
-                    </div>
-                    <div class="col">
-                        <input type="text" class="form-control bg-transparent brdr-inp" id="">
-                    </div>
-                    <div class="col">
-                        <button type="button" class="fa fa-times btn btn-danger" id="remove1"></button>
-                    </div>
-                </div>
+                        <div class="col d-flex align-items-center">
+                            <input required pattern="[0-9]+" type="text" class="form-control bg-transparent brdr-inp" value="18" id="GST1">
+                            <div class="fnt">
+                                <div class="fa fa-percent"></div>
+                            </div>
+                        </div>
+                        <div class="col d-flex align-items-center">
+                            <input required pattern="[0-9]+" type="text" class="form-control bg-transparent brdr-inp" value="1" id="Qua1">
+                        </div>
+                        <div class="col d-flex align-items-center">
+                            <div class="fnt">
+                                <div class="fa fa-rupee"></div>
+                            </div>
+                            <input required pattern="[0-9]+" type="text" class="form-control bg-transparent brdr-inp" value="0" id="Rate1">
+                        </div>
+                        <div class="col d-flex align-items-center">
+                            <div class="fnt">
+                                <div class="fa fa-rupee"></div>
+                            </div>
+                            <input disabled type="text" class="form-control bg-transparent brdr-inp" value="0.00" id="Amount1">
+                        </div>
+                        <div class="col d-flex align-items-center">
+                            <div class="fnt">
+                                <div class="fa fa-rupee"></div>
+                            </div>
+                            <input disabled type="text" class="form-control bg-transparent brdr-inp" value="0.00" id="CGST1">
+                        </div>
+                        <div class="col d-flex align-items-center">
+                            <div class="fnt">
+                                <div class="fa fa-rupee"></div>
+                            </div>
+                            <input type="text" class="form-control bg-transparent brdr-inp" value="0.00" id="SGST1">
+                        </div>
+                        <div class="col d-flex align-items-center">
+                            <div class="fnt">
+                                <div class="fa fa-rupee"></div>
+                            </div>
+                            <input type="text" class="form-control bg-transparent brdr-inp" value="0.00" id="Total1">
+                        </div>
+                        <div class="col">
+                            <button type="button" class="fa fa-times btn btn-danger" id="remove1"></button>
+                        </div>
+                    </div> -->
+                </form>
             </div>
             <div class="text-center">
-                <button class="btn btn-primary" id="add">add</button>
+                <button class="btn btn-primary" id="add">Add New Line</button>
+                <button class="btn btn-primary" id="Upload">Upload</button>
+            </div>
+            <div class="text-center mt-5">
+                <div class="h3">Amount:<span id="last_amount"></span></div>
+                <div class="h3">SGST:<span id="last_SGST"></span></div>
+                <div class="h3">CGST:<span id="last_CGST"></span></div>
+                <div class="h3">TOTAL(INR):<span id="last_total"></span></div>
             </div>
         </div>
     </div>
-
     <!-- Bootstrap js-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
