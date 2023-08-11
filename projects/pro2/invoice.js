@@ -1,10 +1,18 @@
 $(document).ready(function () {
-
     let i = 1;
+
     if (i == 1) {
         append(i)
+        calc(i)
+        last_total(i)
 
         $(`#GST${i}, #Qua${i}, #Rate${i}`).on("input", function () {
+            // debugger
+            calc(i)
+            last_total(i)
+        })
+
+        $(`#Total${i}`).on("input", function () {
             calc(i)
             last_total(i)
         })
@@ -12,26 +20,35 @@ $(document).ready(function () {
         $(`#remove${i}`).click(function () {
             $(this).closest('.row').remove();
             i--
+            last_total()
         })
 
         $(`#Upload`).click(function () {
             Upload(i)
         })
-
         i++
     }
 
     $("#add").click(function () {
 
         append(i)
+        calc(i)
+        last_total(i)
 
         $(`#GST${i}, #Qua${i}, #Rate${i}`).on("input", function () {
             calc(i)
             last_total(i)
         })
+
+        $(`#Total${i}`).on("input", function () {
+            calc(i)
+            last_total(i)
+        })
+
         $(`#remove${i}`).click(function () {
             $(this).closest('.row').remove();
             i--
+            last_total(i)
         })
 
         $(`#Upload`).click(function () {
@@ -40,6 +57,32 @@ $(document).ready(function () {
 
         i++
     })
+    // $("#add").click(function () {
+
+    //     append(i)
+
+    //     $(`#GST${i}, #Qua${i}, #Rate${i}`).on("input", function () {
+    //         calc(i)
+    //         last_total(i)
+    //     })
+
+    //     $(`#Total${i}`).on("input", function () {
+    //         total_calc(i)
+    //         last_total(i)
+    //     })
+
+    //     $(`#remove${i}`).click(function () {
+    //         $(this).closest('.row').remove();
+    //         i--
+    //         last_total(i)
+    //     })
+
+    //     $(`#Upload`).click(function () {
+    //         Upload(i)
+    //     })
+
+    //     i++
+    // })
 
 
     function append(i) {
@@ -66,31 +109,31 @@ $(document).ready(function () {
             <div class="fnt">
                 <div class="fa fa-rupee"></div>
             </div>
-            <input required pattern="[0-9]+" type="text" class="form-control bg-transparent brdr-inp" value="0" id="Rate${i}">
+            <input required pattern="[0-9]+" type="text" class="form-control bg-transparent brdr-inp" value="1" id="Rate${i}">
         </div>
         <div class="col d-flex align-items-center">
             <div class="fnt">
                 <div class="fa fa-rupee"></div>
             </div>
-            <input disabled type="text" class="form-control bg-transparent brdr-inp" value="0.00" id="Amount${i}">
+            <input disabled type="text" class="form-control bg-transparent brdr-inp" id="Amount${i}">
         </div>
         <div class="col d-flex align-items-center">
             <div class="fnt">
                 <div class="fa fa-rupee"></div>
             </div>
-            <input disabled type="text" class="form-control bg-transparent brdr-inp" value="0.00" id="CGST${i}">
+            <input disabled type="text" class="form-control bg-transparent brdr-inp" id="CGST${i}">
         </div>
         <div class="col d-flex align-items-center">
             <div class="fnt">
                 <div class="fa fa-rupee"></div>
             </div>
-            <input type="text" class="form-control bg-transparent brdr-inp" value="0.00" id="SGST${i}">
+            <input type="text" class="form-control bg-transparent brdr-inp" id="SGST${i}">
         </div>
         <div class="col d-flex align-items-center">
             <div class="fnt">
                 <div class="fa fa-rupee"></div>
             </div>
-            <input type="text" class="form-control bg-transparent brdr-inp" value="0.00" id="Total${i}">
+            <input type="text" class="form-control bg-transparent brdr-inp" id="Total${i}">
         </div>
         <div class="col">
             <button type="button" class="fa fa-times btn btn-danger" id="remove${i}"></button>
@@ -100,7 +143,8 @@ $(document).ready(function () {
     }
 
     function calc(i) {
-        for (let j = 1; j < i; j++) {
+        // debugger
+        for (let j = 1; j <= i; j++) {
             let iname = $(`#name${j}`).val()
             let HSN = $(`#HSN${j}`).val()
             let GST = $(`#GST${j}`).val()
@@ -113,38 +157,35 @@ $(document).ready(function () {
             $(`#SGST${j}`).val((((GST / 2) * $(`#Amount${j}`).val()) / 100).toFixed(2))
             let SGST = $(`#SGST${j}`).val()
             $(`#Total${j}`).val(((+((GST * $(`#Amount${j}`).val()) / 100)) + (+$(`#Amount${j}`).val())).toFixed(2))
-            let Total = $(`#Total${i}`).val()
+            let Total = $(`#Total${j}`).val()
         }
     }
 
     function last_total(i) {
-        let lst_Amount = 0;
-        let lst_CGST = 0;
-        let lst_SGST = 0;
-        let lst_total = 0;
-
-        let temp_Amount = 0;
-        let temp_CGST = 0;
-        let temp_SGST = 0;
-        let temp_total = 0;
-
+        // debugger
+        let lst_Amount = 1.00;
+        let lst_CGST = 0.09;
+        let lst_SGST = 0.09;
+        let lst_total = 1.18;
+    
         for (let j = 1; j < i; j++) {
-            temp_Amount = parseFloat(($(`#Amount${j}`).val()))
-            temp_CGST = parseFloat(($(`#CGST${j}`).val()))
-            temp_SGST = parseFloat(($(`#SGST${j}`).val()))
-            temp_total = parseFloat(($(`#Total${j}`).val()))
-
-            lst_Amount += (parseFloat(temp_Amount));
-            lst_CGST += (parseFloat(temp_CGST));
-            lst_SGST += (parseFloat(temp_SGST));
-            lst_total += (parseFloat(temp_total));
-
-            $("#last_amount").html(lst_Amount.toFixed(2))
-            $("#last_CGST").html(lst_CGST.toFixed(2))
-            $("#last_SGST").html(lst_SGST.toFixed(2))
-            $("#last_total").html(lst_total.toFixed(2))
+            let temp_Amount = parseFloat($(`#Amount${j}`).val());
+            let temp_CGST = parseFloat($(`#CGST${j}`).val());
+            let temp_SGST = parseFloat($(`#SGST${j}`).val());
+            let temp_total = parseFloat($(`#Total${j}`).val());
+    
+            lst_Amount += temp_Amount;
+            lst_CGST += temp_CGST;
+            lst_SGST += temp_SGST;
+            lst_total += temp_total;
         }
+    
+        $("#last_amount").html(lst_Amount.toFixed(2));
+        $("#last_CGST").html(lst_CGST.toFixed(2));
+        $("#last_SGST").html(lst_SGST.toFixed(2));
+        $("#last_total").html(lst_total.toFixed(2));
     }
+    
 
     function Upload(i) {
         for (let j = 1; j < i; j++) {
@@ -160,7 +201,7 @@ $(document).ready(function () {
             $(`#SGST${j}`).val((((GST / 2) * $(`#Amount${j}`).val()) / 100).toFixed(2))
             let SGST = $(`#SGST${j}`).val()
             $(`#Total${j}`).val(((+((GST * $(`#Amount${j}`).val()) / 100)) + (+$(`#Amount${j}`).val())).toFixed(2))
-            let Total = $(`#Total${i}`).val()
+            let Total = $(`#Total${j}`).val()
             let obj = {
                 HSN: HSN,
                 GST: GST,
