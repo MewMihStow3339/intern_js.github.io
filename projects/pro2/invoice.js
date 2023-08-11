@@ -1,6 +1,5 @@
 $(document).ready(function () {
     let i = 1;
-    let r = 0;
     let removee = false;
     if (i == 1) {
         append(i)
@@ -23,8 +22,7 @@ $(document).ready(function () {
         })
 
         $(`#remove${i}`).click(function () {
-            r++
-            i = i - r;
+            i--
             last_total(i)
             $(this).closest('.row').remove();
             console.log(i);
@@ -58,8 +56,7 @@ $(document).ready(function () {
         })
 
         $(`#remove${i}`).click(function () {
-            r++
-            i = 1 - r;
+            i--
             $(this).closest('.row').remove();
             last_total(i)
             console.log(i);
@@ -190,12 +187,7 @@ $(document).ready(function () {
         $("#last_CGST").html(lst_CGST.toFixed(2));
         $("#last_SGST").html(lst_SGST.toFixed(2));
         $("#last_total").html(lst_total.toFixed(2));
-        if (i == 0) {
-            $("#last_amount").html((0).toFixed(2));
-            $("#last_CGST").html((0).toFixed(2));
-            $("#last_SGST").html((0).toFixed(2));
-            $("#last_total").html((0).toFixed(2));
-        }
+
     }
 
 
