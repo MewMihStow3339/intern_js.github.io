@@ -1,26 +1,33 @@
 $(document).ready(function () {
     let i = 1;
-
+    let r = 0;
+    let removee = false;
     if (i == 1) {
         append(i)
-        calc(i)
+        calc(i, 1)
         last_total(i)
 
         $(`#GST${i}, #Qua${i}, #Rate${i}`).on("input", function () {
-            // debugger
-            calc(i)
+            calc(i, 1)
+            last_total(i)
+        })
+
+        $(`#Amount${i}`).on("input", function () {
+            calc(i, 2)
             last_total(i)
         })
 
         $(`#Total${i}`).on("input", function () {
-            calc(i)
+            calc(i, 0)
             last_total(i)
         })
 
         $(`#remove${i}`).click(function () {
+            r++
+            i = i - r;
+            last_total(i)
             $(this).closest('.row').remove();
-            i--
-            last_total()
+            console.log(i);
         })
 
         $(`#Upload`).click(function () {
@@ -32,23 +39,30 @@ $(document).ready(function () {
     $("#add").click(function () {
 
         append(i)
-        calc(i)
+        calc(i, 1)
         last_total(i)
 
         $(`#GST${i}, #Qua${i}, #Rate${i}`).on("input", function () {
-            calc(i)
+            calc(i, 1)
+            last_total(i)
+        })
+
+        $(`#Amount${i}`).on("input", function () {
+            calc(i, 2)
             last_total(i)
         })
 
         $(`#Total${i}`).on("input", function () {
-            calc(i)
+            calc(i, 0)
             last_total(i)
         })
 
         $(`#remove${i}`).click(function () {
+            r++
+            i = 1 - r;
             $(this).closest('.row').remove();
-            i--
             last_total(i)
+            console.log(i);
         })
 
         $(`#Upload`).click(function () {
@@ -57,33 +71,6 @@ $(document).ready(function () {
 
         i++
     })
-    // $("#add").click(function () {
-
-    //     append(i)
-
-    //     $(`#GST${i}, #Qua${i}, #Rate${i}`).on("input", function () {
-    //         calc(i)
-    //         last_total(i)
-    //     })
-
-    //     $(`#Total${i}`).on("input", function () {
-    //         total_calc(i)
-    //         last_total(i)
-    //     })
-
-    //     $(`#remove${i}`).click(function () {
-    //         $(this).closest('.row').remove();
-    //         i--
-    //         last_total(i)
-    //     })
-
-    //     $(`#Upload`).click(function () {
-    //         Upload(i)
-    //     })
-
-    //     i++
-    // })
-
 
     function append(i) {
         const el = `<div class="row tr-clr2 py-2" id="child${i}">
@@ -115,7 +102,7 @@ $(document).ready(function () {
             <div class="fnt">
                 <div class="fa fa-rupee"></div>
             </div>
-            <input disabled type="text" class="form-control bg-transparent brdr-inp" id="Amount${i}">
+            <input type="text" class="form-control bg-transparent brdr-inp" id="Amount${i}">
         </div>
         <div class="col d-flex align-items-center">
             <div class="fnt">
@@ -142,22 +129,42 @@ $(document).ready(function () {
         $("#parent").append(el)
     }
 
-    function calc(i) {
-        // debugger
+    function calc(i, flagg) {
         for (let j = 1; j <= i; j++) {
-            let iname = $(`#name${j}`).val()
-            let HSN = $(`#HSN${j}`).val()
-            let GST = $(`#GST${j}`).val()
-            let Qua = $(`#Qua${j}`).val()
-            let Rate = $(`#Rate${j}`).val()
-            $(`#Amount${j}`).val((Qua * Rate).toFixed(2))
-            let Amount = $(`#Amount${j}`).val()
-            $(`#CGST${j}`).val((((GST / 2) * $(`#Amount${j}`).val()) / 100).toFixed(2))
-            let CGST = $(`#CGST${j}`).val()
-            $(`#SGST${j}`).val((((GST / 2) * $(`#Amount${j}`).val()) / 100).toFixed(2))
-            let SGST = $(`#SGST${j}`).val()
-            $(`#Total${j}`).val(((+((GST * $(`#Amount${j}`).val()) / 100)) + (+$(`#Amount${j}`).val())).toFixed(2))
-            let Total = $(`#Total${j}`).val()
+            if (flagg == 0) {
+                let Total = $(`#Total${j}`).val()
+                let GST = $(`#GST${j}`).val()
+                let Qua = $(`#Qua${j}`).val()
+                $(`#Amount${j}`).val((Total / (1 + (GST / 100))).toFixed(2))
+                let Amount = $(`#Amount${j}`).val()
+                $(`#Rate${j}`).val(Amount / Qua)
+            }
+            if (flagg == 1) {
+                let GST = $(`#GST${j}`).val()
+                let Qua = $(`#Qua${j}`).val()
+                let Rate = $(`#Rate${j}`).val()
+                $(`#Amount${j}`).val((Qua * Rate).toFixed(2))
+                let Amount = $(`#Amount${j}`).val()
+                $(`#CGST${j}`).val((((GST / 2) * $(`#Amount${j}`).val()) / 100).toFixed(2))
+                let CGST = $(`#CGST${j}`).val()
+                $(`#SGST${j}`).val((((GST / 2) * $(`#Amount${j}`).val()) / 100).toFixed(2))
+                let SGST = $(`#SGST${j}`).val()
+                $(`#Total${j}`).val(((+((GST * $(`#Amount${j}`).val()) / 100)) + (+$(`#Amount${j}`).val())).toFixed(2))
+                let Total = $(`#Total${j}`).val()
+            }
+            else if (flagg == 2) {
+                let GST = $(`#GST${j}`).val()
+                let Qua = $(`#Qua${j}`).val()
+                let Amount = $(`#Amount${j}`).val()
+                $(`#Rate${j}`).val((Amount / Qua).toFixed(2))
+                let Rate = $(`#Rate${j}`).val()
+                $(`#CGST${j}`).val((((GST / 2) * $(`#Amount${j}`).val()) / 100).toFixed(2))
+                let CGST = $(`#CGST${j}`).val()
+                $(`#SGST${j}`).val((((GST / 2) * $(`#Amount${j}`).val()) / 100).toFixed(2))
+                let SGST = $(`#SGST${j}`).val()
+                $(`#Total${j}`).val(((+((GST * $(`#Amount${j}`).val()) / 100)) + (+$(`#Amount${j}`).val())).toFixed(2))
+                let Total = $(`#Total${j}`).val()
+            }
         }
     }
 
@@ -167,25 +174,30 @@ $(document).ready(function () {
         let lst_CGST = 0.09;
         let lst_SGST = 0.09;
         let lst_total = 1.18;
-    
+
         for (let j = 1; j < i; j++) {
             let temp_Amount = parseFloat($(`#Amount${j}`).val());
             let temp_CGST = parseFloat($(`#CGST${j}`).val());
             let temp_SGST = parseFloat($(`#SGST${j}`).val());
             let temp_total = parseFloat($(`#Total${j}`).val());
-    
+
             lst_Amount += temp_Amount;
             lst_CGST += temp_CGST;
             lst_SGST += temp_SGST;
             lst_total += temp_total;
         }
-    
         $("#last_amount").html(lst_Amount.toFixed(2));
         $("#last_CGST").html(lst_CGST.toFixed(2));
         $("#last_SGST").html(lst_SGST.toFixed(2));
         $("#last_total").html(lst_total.toFixed(2));
+        if (i == 0) {
+            $("#last_amount").html((0).toFixed(2));
+            $("#last_CGST").html((0).toFixed(2));
+            $("#last_SGST").html((0).toFixed(2));
+            $("#last_total").html((0).toFixed(2));
+        }
     }
-    
+
 
     function Upload(i) {
         for (let j = 1; j < i; j++) {
