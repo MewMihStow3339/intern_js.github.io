@@ -45,11 +45,11 @@ $(document).ready(function () {
     }
 
     $("#add").click(function () {
-        remove2 = false
         if (removeed == true) {
             i = 1
             removeed = false
         }
+        remove2 = false
         console.log(i);
         append(i)
         calc(i, 1)
